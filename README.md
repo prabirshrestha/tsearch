@@ -7,6 +7,7 @@ Inspired by https://johnaustin.io/articles/2022/blazing-fast-structural-search-f
 # Supported Languages
 
 * Typescript & TSX
+* Rust
 
 # CLI
 
