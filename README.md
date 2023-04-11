@@ -2,6 +2,8 @@
 
 Search codebase using treesitter query syntax.
 
+Inspired by https://johnaustin.io/articles/2022/blazing-fast-structural-search-for-c-sharp-in-rust.
+
 # Supported Languages
 
 * Typescript & TSX
