@@ -1,7 +1,7 @@
 use std::{
     collections::{HashMap, HashSet},
     fs,
-    path::PathBuf,
+    path::{Path, PathBuf},
 };
 
 use anyhow::Result;
@@ -48,14 +48,7 @@ async fn main() -> Result<()> {
                 .to_str()
                 .unwrap_or_default();
 
-            let ignore = match ext {
-                "ts" => false,
-                "tsx" => false,
-                "rs" => false,
-                _ => true,
-            };
-
-            if !ignore {
+            if matches!(ext, "ts" | "tsx" | "rs") {
                 paths.push(path.clone());
             }
         }
@@ -68,7 +61,7 @@ async fn main() -> Result<()> {
     }
 
     paths.par_iter().for_each(|path| {
-        let language = get_langauge(&path);
+        let language = get_langauge(path);
         if language.is_none() {
             return;
         }
@@ -85,7 +78,7 @@ async fn main() -> Result<()> {
         let mut cursor = QueryCursor::new();
         let root_node = tree.root_node();
 
-        let source_bytes = &*source_code.as_bytes();
+        let source_bytes = source_code.as_bytes();
 
         let mut seen_nodes: HashSet<usize> = HashSet::new();
 
@@ -124,7 +117,7 @@ async fn main() -> Result<()> {
     Ok(())
 }
 
-fn get_langauge(path: &PathBuf) -> Option<Language> {
+fn get_langauge(path: &Path) -> Option<Language> {
     match path.extension().unwrap_or_default().to_str() {
         Some("tsx") => Some(tree_sitter_typescript::language_tsx()),
         Some("ts") => Some(tree_sitter_typescript::language_typescript()),
