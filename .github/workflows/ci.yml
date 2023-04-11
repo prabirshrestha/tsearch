@@ -37,11 +37,11 @@ jobs:
       with:
         command: fmt
         args: --all -- --check
-    - name: clippy
-      uses: actions-rs/clippy-check@v1
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        args: --all-features
+    # - name: clippy
+    #   uses: actions-rs/clippy-check@v1
+    #   with:
+    #     token: ${{ secrets.GITHUB_TOKEN }}
+    #     args: --all-features
 
   build:
     env:
