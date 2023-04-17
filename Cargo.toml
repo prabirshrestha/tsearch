@@ -1,7 +1,9 @@
 [package]
 name = "tsearch"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
+LICENSE = "MIT"
+description = "Search codebase using treesitter query syntax"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
