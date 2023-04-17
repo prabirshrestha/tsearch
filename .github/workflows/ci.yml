@@ -49,6 +49,8 @@ jobs:
       RUST_BACKTRACE: 1
     runs-on: ${{ matrix.os }}
     needs: [style]
+    permissions:
+      contents: write
     outputs:
       release_id: ${{ steps.release.outputs.id }}
     strategy:
