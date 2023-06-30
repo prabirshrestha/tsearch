@@ -14,7 +14,7 @@ clap = { version = "4.3.9", features = ["derive"] }
 ignore = "0.4.20"
 rayon = "1.7.0"
 stopwatch = "0.0.7"
-tokio = { version = "1.28.2", features = ["macros", "rt-multi-thread"] }
+tokio = { version = "1.29.1", features = ["macros", "rt-multi-thread"] }
 tree-sitter = "0.20.10"
 tree-sitter-rust = "0.20.3"
 tree-sitter-typescript = "0.20.2"
